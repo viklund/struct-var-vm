@@ -1,0 +1,2 @@
+- name: Download and install nextflow for the vagrant user
+  shell: curl -fsSL get.nextflow.io | bash

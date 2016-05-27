@@ -9,3 +9,4 @@
       - gcc
       - python-devel
       - zlib-devel
+      - java-1.8.0-openjdk

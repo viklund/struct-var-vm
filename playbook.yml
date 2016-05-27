@@ -1,3 +1,4 @@
 - hosts: all
   roles:
       - base
+      - { role: nextflow, become_user: vagrant, become: true }
