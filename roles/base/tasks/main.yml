@@ -1,0 +1,11 @@
+- name: Turn off selinux
+  selinux: state=disabled
+- name: Install some basic software
+  yum: state=present name={{ item }}
+  with_items:
+      - vim
+      - git
+      - wget
+      - gcc
+      - python-devel
+      - zlib-devel
