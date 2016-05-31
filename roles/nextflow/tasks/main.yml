@@ -1,2 +1,8 @@
 - name: Download and install nextflow for the vagrant user
   shell: curl -fsSL get.nextflow.io | bash
+- name: Create bin directory
+  file: dest=/home/vagrant/bin state=directory
+- name: Copy nextflow into bin
+  copy: src=nextflow remote_src=yes dest=/home/vagrant/bin/nextflow mode=0755
+- name: Remove nextflow from home directory
+  file: dest=/home/vagrant/nextflow state=absent
