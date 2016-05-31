@@ -1,0 +1,17 @@
+- name: Add the docker group
+  group: name=docker state=present
+- name: Add the vagrant user to the docker group
+  user: name=vagrant groups=docker append=yes
+- name: Add docker repo
+  yum_repository:
+    name: dockerrepo
+    description: Docker Repository
+    file: docker
+    baseurl: https://yum.dockerproject.org/repo/main/centos/$releasever/
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://yum.dockerproject.org/gpg
+- name: Install docker
+  yum: state=present name=docker-engine
+- name: Start the docker service
+  service: name=docker enabled=yes state=restarted
